@@ -1,4 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/iron-image/iron-image.html">
+<link rel="import" href="my-img.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-new-view">
@@ -14,9 +17,13 @@
 
     <div class="card">
       <div class="circle">4</div>
-      <h1>I created this page for learning.</h1>
-      <p>I find that the Polymer is real tool for me to create web-application</p> 
-      <p>Don't you think so?</p> 
+      <h1>Show a list of images.</h1>
+ 
+      <p><iron-image   src="../images/manifest/icon-144x144.png"></iron-image>
+      <p><iron-image   src="../images/manifest/icon-144x144.png"></iron-image>
+      <p><iron-image   src="../images/manifest/icon-144x144.png"></iron-image>
+      <p><iron-image   src="../images/manifest/icon-144x144.png"></iron-image>
+
     </div>
   </template>
   <!-- Creates the element's prototype and registers it -->
