@@ -7,3 +7,4 @@ Step:
 - [Add new page](https://github.com/XinyueZ/hello-polymer/tree/add-new-page) .
 - [Add element to page](https://github.com/XinyueZ/hello-polymer/tree/add-element) .
 - [Registration and lifecycle](https://github.com/XinyueZ/hello-polymer/tree/registeration-lifecycle) .
+- [List of static images](https://github.com/XinyueZ/hello-polymer/tree/add-image-list-page) .
