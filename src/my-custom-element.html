@@ -1,0 +1,15 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"> 
+
+<dom-module id="my-custom-element"> 
+  <script>
+    Polymer({
+        is: 'my-custom-element',
+        extends: 'input',
+
+        created: function() {
+            this.value = 'My custom element, it is new!';
+            this.style.border = '10px solid red';
+        }
+    });
+  </script>
+</dom-module>

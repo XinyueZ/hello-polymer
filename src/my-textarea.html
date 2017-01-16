@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"> 
+
+<dom-module id="my-textarea"> 
+  <script>
+    Polymer({
+        is: 'my-textarea',
+        extends: 'textarea',
+  
+
+        created: function() {
+            this.value = this.value + (this.localName + '#' + this.id + ' was created' + '\n');
+        },
+
+        ready: function() {
+            this.value = this.value + (this.localName + '#' + this.id + ' has local DOM initialized'+ '\n');
+        },
+
+        attached: function() {
+            this.value = this.value + (this.localName + '#' + this.id + ' was attached'+ '\n');
+        },
+
+        detached: function() {
+            console.log(this.localName + '#' + this.id + ' was detached');
+        },
+
+        attributeChanged: function(name, type) {
+            console.log(this.localName + '#' + this.id + ' attribute ' + name +
+            ' was changed to ' + this.getAttribute(name));
+        }
+    });
+  </script>
+</dom-module>

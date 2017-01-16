@@ -1,5 +1,6 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
-<link rel="import" href="../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="my-custom-element.html">
+<link rel="import" href="my-textarea.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="my-new-view">
@@ -15,11 +16,10 @@
 
     <div class="card">
       <div class="circle">4</div>
-      <h1>I created this page for learning.</h1>
-      <p>I find that the Polymer is real tool for me to create web-application</p> 
-      <p>Don't you think so?</p> 
+      <h1>I have defined a new input-element</h1> 
+      <p><input is="my-custom-element"></input>
+      <p><textarea is="my-textarea" id='id-textarea'></textarea>
     </div>
-    <paper-slider min="-100" max="100" value="50"></paper-slider>
   </template>
   <!-- Creates the element's prototype and registers it -->
   <script>
