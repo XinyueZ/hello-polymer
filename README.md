@@ -1,5 +1,4 @@
-# Add new page
-
+# Show image-list
 By https://docs-05-dot-polymer-project.appspot.com/1.0/docs/devguide/registering-elements.html
 
 Try to show a page with a list of images.
