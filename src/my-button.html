@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"> 
+
+<dom-module id="my-button">
+  <template> 
+    <style>
+      #log {
+        width: 500px;
+        height: 500px;
+        background: white;
+      }
+    </style>
+
+    <button id="myButton" on-click="handleClick">Click Me</button>
+    <button id="clearButton">clear log</button>
+    <p><textarea id="log"></textarea>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-button',
+      listeners: {
+          "clearButton.click": "handleClear"
+      },
+      handleClear: function(ev) {
+          this.$.log.value = "";
+      },
+      handleClick: function(ev) {
+        this.$.log.value =  ev.target.id + " was clicked.\n" + this.$.log.value;
+      }
+    });
+  </script>
+</dom-module>
