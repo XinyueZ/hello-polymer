@@ -1,18 +1,11 @@
 <link rel="import" href="../bower_components/polymer/polymer.html"> 
+<link rel="import" href="my-textarea.html"> 
 
 <dom-module id="my-button">
-  <template> 
-    <style>
-      #log {
-        width: 500px;
-        height: 500px;
-        background: white;
-      }
-    </style>
-
+  <template>
     <button id="myButton" on-click="handleClick">Click Me</button>
     <button id="clearButton">clear log</button>
-    <p><textarea id="log"></textarea>
+    <p><my-textarea id="log"></my-textarea>
   </template>
 
   <script>
@@ -22,11 +15,19 @@
           "clearButton.click": "handleClear"
       },
       handleClear: function(ev) {
-          this.$.log.value = "";
+          this.$.log.clearContent();
       },
       handleClick: function(ev) {
-        this.$.log.value =  ev.target.id + " was clicked.\n" + this.$.log.value;
+          this.$.log.addContent("Clicked me by " + ev.target.id);
       }
     });
+
+    // var el = document.querySelector('my-textarea');
+    // el.addEventListener('click', function(){
+    //     var normalizedEvent = Polymer.dom(event); 
+    //     this.addContent('rootTarget is:', normalizedEvent.rootTarget); 
+    //     this.addContent('localTarget is:', normalizedEvent.localTarget); 
+    //     this.addContent('path is:', normalizedEvent.path);
+    // });
   </script>
 </dom-module>

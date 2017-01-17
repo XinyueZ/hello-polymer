@@ -1,0 +1,54 @@
+<link rel="import" href="../bower_components/polymer/polymer.html"> 
+
+<dom-module id="my-textarea">
+  <template> 
+    <style>
+      #text {
+        width: 500px;
+        height: 500px;
+        background: white;
+      }
+    </style>
+
+    <textarea id="text" on-click="handleClick" on-down="handleDown" on-up="handleOn" on-tap="handleTap" on-track="handleTrack"></textarea>
+  </template>
+
+  <script>
+    Polymer({
+        is: 'my-textarea', 
+        handleClick: function(ev) {
+            this.$.text.value= "Handle for Click\n"  + this.$.text.value; 
+                
+        }, 
+        handleDown: function(ev) {
+            this.$.text.value= "Handle for DOWN " + "(" + ev.detail.x+ "," + ev.detail.y + ")\n" + this.$.text.value; 
+                
+        }, 
+        handleOn: function(ev) {
+            this.$.text.value= "Handle for ON " + "(" + ev.detail.x+ "," + ev.detail.y + ")\n" + this.$.text.value;     
+        },
+        handleTap: function(ev) {
+            this.$.text.value= "Handle for TAP " + "(" + ev.detail.x+ "," + ev.detail.y + ")\n" + this.$.text.value;      
+        }, 
+        handleTrack: function(ev) {
+            switch(ev.detail.state) {
+                case "start":
+                    this.$.text.value= "Handle for " + ev.detail.state + " (" + ev.detail.x+ "," + ev.detail.y + ")\n" + this.$.text.value; 
+                break;
+                case "track":
+                    this.$.text.value= "Handle for " + ev.detail.state + " (" + ev.detail.x+ "," + ev.detail.y + ")\n" + this.$.text.value; 
+                break;
+                case "end":
+                    this.$.text.value= "Handle for " + ev.detail.state + " (" + ev.detail.x+ "," + ev.detail.y + ")\n" + this.$.text.value; 
+                break;
+            }
+        }, 
+        clearContent: function() {
+            this.$.text.value = "";
+        },
+        addContent: function(newContent) {
+            this.$.text.value = newContent + "\n" + this.$.text.value;
+        }
+    });
+  </script>
+</dom-module>
