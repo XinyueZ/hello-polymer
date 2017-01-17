@@ -1,5 +1,5 @@
-# Add new page
+# Events 
 
-By https://www.polymer-project.org/1.0/start/toolbox/create-a-page
+By https://docs-05-dot-polymer-project.appspot.com/1.0/docs/devguide/events.html
 
 [Return](https://github.com/XinyueZ/hello-polymer/blob/master/README.md)
