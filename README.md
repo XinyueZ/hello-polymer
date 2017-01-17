@@ -8,3 +8,4 @@ Step:
 - [Add element to page](https://github.com/XinyueZ/hello-polymer/tree/add-element) .
 - [Registration and lifecycle](https://github.com/XinyueZ/hello-polymer/tree/registeration-lifecycle) .
 - [List of static images](https://github.com/XinyueZ/hello-polymer/tree/add-image-list-page) .
+- [Events on element](https://github.com/XinyueZ/hello-polymer/tree/events) .
