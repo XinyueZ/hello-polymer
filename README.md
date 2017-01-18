@@ -1,13 +1,17 @@
-# This learning history
+# Example: A notpad 
 
-I'm learning to build web-applcation with [Polymer 1.0](https://www.polymer-project.org/1.0/)
+## Make a notpad web-app with basic UI-elements. 
 
-Step:
-
-- [Add new page](https://github.com/XinyueZ/hello-polymer/tree/add-new-page) .
-- [Add element to page](https://github.com/XinyueZ/hello-polymer/tree/add-element) .
-- [Registration and lifecycle](https://github.com/XinyueZ/hello-polymer/tree/registeration-lifecycle) .
-- [List of static images](https://github.com/XinyueZ/hello-polymer/tree/add-image-list-page) .
-- [Events on element](https://github.com/XinyueZ/hello-polymer/tree/events) .
-- [Data, properties, binding, observer...](https://github.com/XinyueZ/hello-polymer/tree/data-properties) .
-- [Properties with notify and reflectToAttribute](https://github.com/XinyueZ/hello-polymer/tree/reflect-notify) .
+- App-bar
+    - Current doc-name edit on
+- Drawer
+- Editor, only for Editor
+- FAB
+    - Create new file
+    - Save current text
+        - Backend on AppEngine(Endpoint programming)
+- Google login
+    - Show username on app-bar
+    - Show user-photo on app-bar
+- About menu on drawer
+    - Show only a standard popup
