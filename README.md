@@ -10,3 +10,4 @@ Step:
 - [List of static images](https://github.com/XinyueZ/hello-polymer/tree/add-image-list-page) .
 - [Events on element](https://github.com/XinyueZ/hello-polymer/tree/events) .
 - [Data, properties, binding, observer...](https://github.com/XinyueZ/hello-polymer/tree/data-properties) .
+- [Properties with notify and reflectToAttribute](https://github.com/XinyueZ/hello-polymer/tree/reflect-notify) .
