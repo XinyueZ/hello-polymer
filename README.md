@@ -9,3 +9,4 @@ Step:
 - [Registration and lifecycle](https://github.com/XinyueZ/hello-polymer/tree/registeration-lifecycle) .
 - [List of static images](https://github.com/XinyueZ/hello-polymer/tree/add-image-list-page) .
 - [Events on element](https://github.com/XinyueZ/hello-polymer/tree/events) .
+- [Data, properties, binding, observer...](https://github.com/XinyueZ/hello-polymer/tree/data-properties) .
