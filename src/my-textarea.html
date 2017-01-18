@@ -18,13 +18,23 @@
       properties: {
         textContent:  {
             type: String, 
-            observer: '_textContentChanged' 
+            observer: '_textContentChanged'
         },
+
+        ticker: {
+            type: String, 
+            notify: true
+        }
       },
 
       _textContentChanged: function(textContent) {
-            console.info('txt:', textContent);
-            this.$.text.value = textContent + '\n' + this.$.text.value;
+            // console.info('txt:', textContent);
+            this.$.text.value = textContent + '\n' + this.$.text.value; 
+            this._setTicker(new Date());
+      },
+
+      _setTicker: function(ticker) {
+            this.ticker = ticker.toString();
       }
     });
   </script>

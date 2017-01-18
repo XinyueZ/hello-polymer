@@ -1,4 +1,4 @@
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/polymer/polymer.html"> 
 <link rel="import" href="my-textarea.html">
 <link rel="import" href="shared-styles.html">
 
@@ -16,7 +16,7 @@
     <div class="card">
       <div class="circle">4</div>
       <h1>I created this page for learning.</h1>
-      <my-textarea id="text"  on-click="handleClick" text-content="init of my-textarea"></my-textarea>
+      <my-textarea id="text"  on-click="handleClick" text-content="init of my-textarea"></my-textarea> 
     </div>
   </template>
   <!-- Creates the element's prototype and registers it -->
@@ -24,9 +24,18 @@
     Polymer({
       is: 'my-new-view',
 
+      ready: function() {
+        var el = Polymer.dom(this.root).querySelector('my-textarea');
+        el.addEventListener('ticker-changed', function(ticker) {
+          console.info('ticker-changed dyn:', ticker); 
+        });
+      },
+
       handleClick: function(ev) {
         this.$.text.textContent = "Click..." + new Date();
       }
     });
+
+
   </script>
 </dom-module>
