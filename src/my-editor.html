@@ -24,12 +24,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 font-family: 'Roboto', 'Noto', sans-serif;
             }
         </style>
-        <iron-autogrow-textarea id="editor"></iron-autogrow-textarea>
+        <iron-autogrow-textarea id="editor"  ></iron-autogrow-textarea>
     </template>
 
   <script>
     Polymer({
-      is: 'my-editor',
+        is: 'my-editor',
+        
+        attached: function() {
+            if(this.$.editor.value == null) {
+                console.info("attached: ", this.$.editor.value == null) ;
+                this.$.editor.placeholder = "Write something here...";
+            } else {
+                //TODO something else...
+            }
+        }
     });
   </script>
 </dom-module>
