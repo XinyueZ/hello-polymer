@@ -24,13 +24,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 font-family: 'Roboto', 'Noto', sans-serif;
             }
         </style>
-        <iron-autogrow-textarea id="editor"  ></iron-autogrow-textarea>
+        <iron-autogrow-textarea id="editor" bindValue={{editText}} autofocus></iron-autogrow-textarea>
     </template>
 
   <script>
     Polymer({
         is: 'my-editor',
         
+        properties: {
+            editText: {
+                type: String,
+                value: ""
+            }
+        },
+
+
+        ready: function() {
+            this.$$('iron-autogrow-textarea').addEventListener('bind-value-changed', this.ironAutogrowTextareaBindValueChanged);
+        },      
+
         attached: function() {
             if(this.$.editor.value == null) {
                 console.info("attached: ", this.$.editor.value == null) ;
@@ -38,6 +50,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             } else {
                 //TODO something else...
             }
+        },
+
+        ironAutogrowTextareaBindValueChanged: function(e) {
+            this.textUpdated = true;
+            this.fire("edit-text-changed"); 
         }
     });
   </script>
