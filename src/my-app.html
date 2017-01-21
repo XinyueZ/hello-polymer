@@ -159,11 +159,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       ready: function() { 
         this.textUpdated = false; 
-        this.$$('my-editor').addEventListener('edit-text-changed', this._handleFABSave);
+        this.addEventListener('edit-text-changed', this._handleFABSave);
       },
 
-      _handleFABSave: function(e) {
-        e.target.parentElement.parentElement.parentElement.parentNode.getElementById("fabSave").disabled = false;
+      _handleFABSave: function(e) { 
+        this.$.fabSave.disabled = false;
       },
 
       onfabSaveTapHandler:function() {
