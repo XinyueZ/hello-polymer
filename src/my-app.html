@@ -102,7 +102,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
             <div main-title>Notepad</div>
             <paper-input label="Doc Name"></paper-input>
-            <google-signin client-id="1089822504233-kjkll05685jsifph78tm3ar7i16a892l.apps.googleusercontent.com" width="iconOnly"></google-signin>
+            <div>{{username}}</div><google-signin client-id="1089822504233-kjkll05685jsifph78tm3ar7i16a892l.apps.googleusercontent.com" width="iconOnly"></google-signin>
           </app-toolbar>
         </app-header>
 
@@ -162,6 +162,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       ready: function() { 
         this.textUpdated = false; 
         this.addEventListener('edit-text-changed', this._handleFABSave);
+        this.addEventListener('google-signin-success', this._googleSigninSuccess);
+        this.addEventListener('google-signed-out', this._googleSignedOut);
       },
 
       _handleFABSave: function(e) { 
@@ -176,7 +178,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       onfabEditTapHandler: function() {
          alert("new doc can not be created.");
          this.textUpdated = false;
+      },
+
+      _googleSigninSuccess: function() {
+        var profile =  gapi.auth2.getAuthInstance().currentUser.get().getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail());
+
+        this.username = profile.getName();
+      },
+
+      _googleSignedOut: function() {
+        this.username = ""
       }
+      
     });
   </script>
 </dom-module>
