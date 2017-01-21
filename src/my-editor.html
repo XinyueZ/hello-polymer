@@ -24,7 +24,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 font-family: 'Roboto', 'Noto', sans-serif;
             }
         </style>
-        <iron-autogrow-textarea id="editor" bindValue={{editText}} autofocus></iron-autogrow-textarea>
+        <iron-autogrow-textarea id="editor" bindValue={{editText}} value = "{{initText}}" autofocus></iron-autogrow-textarea>
     </template>
 
   <script>
@@ -41,6 +41,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         ready: function() {
             this.$$('iron-autogrow-textarea').addEventListener('bind-value-changed', this.ironAutogrowTextareaBindValueChanged);
+            this.initText="Start writing here...";
         },      
 
         attached: function() {
