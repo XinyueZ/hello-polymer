@@ -22,8 +22,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
-<link rel="import" href="../bower_components/google-signin/google-signin.html">
-<link rel="import" href="my-snackbar.html">
+<link rel="import" href="../bower_components/google-signin/google-signin.html"> 
+<link rel="import" href="../bower_components/paper-toast/paper-toast.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
@@ -39,6 +39,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app-header {
         color: #fff;
         background-color: var(--app-primary-color);
+        
+        --app-header-shadow: {
+          box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+        };
       }
       app-header paper-icon-button {
         --paper-icon-button-ink-color: white;
@@ -75,7 +79,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         position:fixed;
         bottom:0;
         right:0;
-      } 
+      }  
+ 
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -88,7 +93,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-drawer-layout fullbleed>
       <!-- Drawer content -->
       <app-drawer id="drawer">
-        <app-toolbar>Menu</app-toolbar>
+        <paper vertical layout>
+           <google-signin client-id="1089822504233-kjkll05685jsifph78tm3ar7i16a892l.apps.googleusercontent.com"  ></google-signin> 
+           <span><div>as {{username}}</div></span>
+        </paper> 
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="editor" href="/editor">Editor</a> 
           <a name="about" href="/about">About</a> 
@@ -102,8 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
             <div main-title>Notepad</div>
-            <paper-input label="Doc Name"></paper-input>
-            <div>{{username}}</div><google-signin client-id="1089822504233-kjkll05685jsifph78tm3ar7i16a892l.apps.googleusercontent.com" width="iconOnly"></google-signin>
+            <paper-input label="Doc Name"></paper-input> 
           </app-toolbar>
         </app-header>
 
@@ -120,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </app-drawer-layout>
     <paper-fab  class = "pink" id = "fabSave" icon="my-icons:save" title="save" disabled = {{!textUpdated}} on-tap="onfabSaveTapHandler"></paper-fab>
     <paper-fab  class = "green" id = "fabEdit" icon="my-icons:edit" title="edit" on-tap="onfabEditTapHandler"></paper-fab>
-    <my-snackbar id="snackbar" label="Lorem ipsum dolor sit amet..."></my-snackbar>
+    <paper-toast id="snackbar" text="This toast auto-closes after 3 seconds"></paper-toast>
   </template>
 
   <script>
