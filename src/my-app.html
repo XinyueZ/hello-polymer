@@ -23,6 +23,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/google-signin/google-signin.html">
+<link rel="import" href="my-snackbar.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
@@ -119,6 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </app-drawer-layout>
     <paper-fab  class = "pink" id = "fabSave" icon="my-icons:save" title="save" disabled = {{!textUpdated}} on-tap="onfabSaveTapHandler"></paper-fab>
     <paper-fab  class = "green" id = "fabEdit" icon="my-icons:edit" title="edit" on-tap="onfabEditTapHandler"></paper-fab>
+    <my-snackbar id="snackbar" label="Lorem ipsum dolor sit amet..."></my-snackbar>
   </template>
 
   <script>
@@ -188,10 +190,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         console.log('Email: ' + profile.getEmail());
 
         this.username = profile.getName();
+        //this.$.snackbar.
+        this.$.snackbar.open();
+        this.$.snackbar.text = "You have logined as " + this.username + ".";
       },
 
       _googleSignedOut: function() {
         this.username = ""
+        this.$.snackbar.open();
+        this.$.snackbar.text = "Logout now.";
       }
       
     });
