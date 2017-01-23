@@ -24,6 +24,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-input/paper-input.html">
 <link rel="import" href="../bower_components/google-signin/google-signin.html"> 
 <link rel="import" href="../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../bower_components/paper-avatar-image/paper-avatar-image.html">
 <link rel="import" href="my-icons.html">
 
 <dom-module id="my-app">
@@ -107,9 +108,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-drawer-layout fullbleed>
       <!-- Drawer content -->
       <app-drawer id="drawer"  style="background-color: #BDBDBD;">
-        <div class="container flex-center-justified" style="height: 150px; background-color: #3F51B5">
+        <div class="container flex-center-justified" style="height: 170px; background-color: #3F51B5">
           <div class="flex-vertical" > 
-            <span><div>as {{username}}</div></span>
+            <paper-avatar-image id="avatar" src="{{avatarUrl}}" icon="my-icons:avatar" style="background-color: #3F51B5"></paper-avatar-image>
+            <div style="margin:10px">{{username}}</div>
             <google-signin client-id="1089822504233-kjkll05685jsifph78tm3ar7i16a892l.apps.googleusercontent.com"></google-signin> 
           </div> 
         </div>
@@ -211,14 +213,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail());
 
-        this.username = profile.getName();
-        //this.$.snackbar.
+        this.username = profile.getName(); 
         this.$.snackbar.open();
         this.$.snackbar.text = "You have logined as " + this.username + ".";
+
+        this.avatarUrl = profile.getImageUrl();
       },
 
       _googleSignedOut: function() {
         this.username = ""
+        this.avatarUrl = "";
         this.$.snackbar.open();
         this.$.snackbar.text = "Logout now.";
       }
