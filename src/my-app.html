@@ -14,7 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/app-layout/app-header/app-header.html">
 <link rel="import" href="../bower_components/app-layout/app-header-layout/app-header-layout.html">
 <link rel="import" href="../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
-<link rel="import" href="../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/app-route/app-route.html">
 <link rel="import" href="../bower_components/iron-pages/iron-pages.html">
@@ -81,16 +81,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         bottom:0;
         right:0;
       }
-      app-toolbar { 
-        font-family: 'Roboto', Helvetica, sans-serif;
-        color: white;
-        --app-toolbar-font-size: 24px;
+      paper-toolbar {  
+        --paper-toolbar-color: white; 
+        --paper-toolbar-title: { 
+          font-weight: bold;
+          color: white; 
+          font-family: 'Roboto', Helvetica, sans-serif;
+          font-size: 24px;  
+        }; 
+      } 
+      paper-input  {
+        --paper-input-container-color: white;
+        --paper-input-container-focus-color: pink;
+        --paper-input-container-invalid-color: red;
+        --paper-input-container-input-color: white;
       }
 
       .flex-vertical {
         @apply(--layout-vertical); 
         @apply(--layout-center);
       }    
+
+      .flex-horizontal {
+        @apply(--layout-horizontal); 
+        @apply(--layout-center);
+      }   
+
       .flex-center-justified {
         @apply(--layout-horizontal);
         @apply(--layout-center); 
@@ -124,11 +140,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Main content -->
       <app-header-layout has-scrolling-region> 
         <app-header condenses reveals effects="waterfall">
-          <app-toolbar>
+          <paper-toolbar class="toolbar" >
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
-            <div main-title>Notepad</div>
-            <paper-input label="Doc Name"></paper-input> 
-          </app-toolbar>
+            <span class="title" main-title>Notepad</span>
+            <paper-input label="Doc Name"   maxlength="1000"></paper-input> 
+          </paper-toolbar>
         </app-header>
 
         <iron-pages
