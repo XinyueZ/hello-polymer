@@ -5,6 +5,7 @@
     "src/my-about.html",
     "src/my-editor.html",
     "src/my-list.html",
+    "src/my-service.html",
     "src/my-view404.html"
   ],
   "sourceGlobs": [

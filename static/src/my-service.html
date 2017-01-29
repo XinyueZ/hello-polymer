@@ -1,0 +1,29 @@
+<link rel="import" href="../bower_components/google-apis/google-apis.html"> 
+
+<dom-module id="my-service">
+  <template> 
+            <google-client-loader
+                id="service"
+                name="documents"
+                version="v1"
+                app-id="webdev-play"
+                on-google-api-load="_apiLoaded"></google-client-loader>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-service',
+ 
+      _apiLoaded: function(e) {
+          console.log("_apiLoaded", "Api loaded") 
+      },
+
+      makeRequest: function() {
+        var request = this.$.service.api.documents.list()
+        request.execute(function (resp) {
+            console.log("response", resp.toString())
+        }.bind(this));
+      }
+    });
+  </script>
+</dom-module>
