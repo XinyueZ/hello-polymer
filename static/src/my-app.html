@@ -161,7 +161,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fallback-selection="view404"
             role="main">
           <my-editor id="notepadEdit" name="editor"></my-editor> 
-          <my-list  id = "documentList" name="list" document-list={{documents}}></my-list> 
+          <my-list  id = "documentList" name="list"></my-list> 
           <my-about name="about"></my-about> 
           <my-view404 name="view404"></my-view404>
         </iron-pages>
@@ -185,11 +185,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         textUpdated: {
             type: Boolean,
             reflectToAttribute: true 
-        },
-        documents: {
-          type: Object,
-          reflectToAttribute: true
-        }
+        } 
       },
 
       listeners: {
@@ -227,11 +223,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.addEventListener('edit-text-changed', this._handleFABSave);
         this.addEventListener('google-signin-success', this._googleSigninSuccess);
         this.addEventListener('google-signed-out', this._googleSignedOut);
-        this.addEventListener('documents-loaded', this._documentsLoaded);
-      },
+        this.addEventListener('on-documents-loaded', this._onDocumentsLoaded);
+      }, 
 
-      _documentsLoaded: function() {
-        this.documents = this.$.service.documents;
+      _onDocumentsLoaded: function() {
+        console.info("app: this.$.service.documents", this.$.service.documents );  
+        this.$.documentList.data = this.$.service.documents;
+        console.info("app: this.$.documentList.data", this.$.documentList.data );  
       },
 
       _handleFABSave: function(e) { 

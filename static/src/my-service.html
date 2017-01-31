@@ -13,35 +13,19 @@
 
   <script>
     Polymer({
-      is: 'my-service',
-  
-      
-      created: function() {
-        console.info("created", "created");
-      },
-
-      attached: function() {
-        console.info("attached", "attached");
-      },
-
-
-      ready: function() {
-        console.info("ready", "ready"); 
-      },
-
+      is: 'my-service', 
 
       loadDocuments: function() {
         var request = this.$.service.api.documents.list()
         request.execute(function (resp) {
             this.documents = resp;
-            this.fire("documents-loaded");
+            console.info("this.documents ", this.documents );  
+            this.fire("on-documents-loaded");
         }.bind(this));
       },
 
       _apiLoaded: function(e) {
-        console.info("_apiLoaded", "loadDocuments");
         this.loadDocuments();
-        console.info("_apiLoaded", "loaded");
       },
 
       _apiLoadedError: function(e) {

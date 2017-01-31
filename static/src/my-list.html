@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
  
-    <template is="dom-repeat" items="{{documentList.items}}">
+    <template is="dom-repeat" items="{{data.items}}">
       <div class="card"> 
         <span>{{item.title}}</span> 
         <p><span>{{item.content}}</span>
@@ -32,27 +32,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <script>
     Polymer({
-      is: 'my-list',
-
-      properties: { 
-        documentList: {
-          type: Object
-        }
-      },
-
-
-      created: function() {
-        console.info("created", "created: " + this.documentList);
-      },
-
-      attached: function() {
-        console.info("attached", "attached: " + this.documentList);
-      },
-
-
-      ready: function() {
-        console.info("ready", "ready: " + this.documentList); 
-      },
+      is: 'my-list' 
 
     });
   </script>
