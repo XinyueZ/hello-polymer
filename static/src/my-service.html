@@ -7,23 +7,47 @@
                 name="documents"
                 version="v1"
                 app-id="webdev-play"
-                on-google-api-load="_apiLoaded"></google-client-loader>
+                on-google-api-load="_apiLoaded"
+                google-api-load-error = "_apiLoadedError" ></google-client-loader>
   </template>
 
   <script>
     Polymer({
       is: 'my-service',
- 
-      _apiLoaded: function(e) {
-          console.log("_apiLoaded", "Api loaded") 
+  
+      
+      created: function() {
+        console.info("created", "created");
       },
 
-      makeRequest: function() {
+      attached: function() {
+        console.info("attached", "attached");
+      },
+
+
+      ready: function() {
+        console.info("ready", "ready"); 
+      },
+
+
+      loadDocuments: function() {
         var request = this.$.service.api.documents.list()
         request.execute(function (resp) {
-            console.log("response", resp.toString())
+            this.documents = resp;
+            this.fire("documents-loaded");
         }.bind(this));
+      },
+
+      _apiLoaded: function(e) {
+        console.info("_apiLoaded", "loadDocuments");
+        this.loadDocuments();
+        console.info("_apiLoaded", "loaded");
+      },
+
+      _apiLoadedError: function(e) {
+        console.info("_apiLoadedError", "cannot load");  
       }
     });
   </script>
+  
 </dom-module>

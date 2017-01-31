@@ -20,15 +20,40 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         padding: 10px;
       }
     </style>
-
-    <div class="card"> 
-      <h1>List of doc you have created</h1> 
-    </div>
+ 
+    <template is="dom-repeat" items="{{documentList.items}}">
+      <div class="card"> 
+        <span>{{item.title}}</span> 
+        <p><span>{{item.content}}</span>
+      </div> 
+    </template>
+ 
   </template>
 
   <script>
     Polymer({
       is: 'my-list',
+
+      properties: { 
+        documentList: {
+          type: Object
+        }
+      },
+
+
+      created: function() {
+        console.info("created", "created: " + this.documentList);
+      },
+
+      attached: function() {
+        console.info("attached", "attached: " + this.documentList);
+      },
+
+
+      ready: function() {
+        console.info("ready", "ready: " + this.documentList); 
+      },
+
     });
   </script>
 </dom-module>
